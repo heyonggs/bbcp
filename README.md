@@ -5,6 +5,17 @@ Securely and quickly copy data from source to target.
 
 ### Installation
 
+Centos7
+
+```sh
+yum install -y openssl-devel zlib-devel
+git clone https://github.com/heyonggs/bbcp.git
+cd bbcp/src
+make
+cp ../bin/amd64_linux/bbcp /usr/local/bin/bbcp
+bbcp --version
+```
+
 Ubuntu 12.04 LTS
 
 ```sh
@@ -19,6 +30,14 @@ bbcp --version
 
 ### Examples
 ```sh
+    > bbcp -P 4 -s 8 -w 1G 2025-10-21-00-30_25769808419.txt root@192.168.12.20:/tmp/
+    bbcp: Creating /tmp/2025-10-21-00-30_25769808419.txt
+    bbcp: 251119 19:09:05  21% done; 1.1 GB/s
+    bbcp: 251119 19:09:08  33% done; 897.2 MB/s
+    bbcp: 251119 19:09:11  38% done; 685.9 MB/s
+    bbcp: 251119 19:09:14  42% done; 573.6 MB/s
+    bbcp: 251119 19:09:17  46% done; 502.0 MB/s
+
     > bbcp -P 2 -w 2M -s 10 my.big.file eee@moon:/top-secret-files/
     bbcp: Creating /top-secret-files/my.big.file
     bbcp: At 140506 17:33:18 copy 20% complete; 89998.2 KB/s
